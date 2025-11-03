@@ -1,0 +1,64 @@
+# Laravel specific
+*.log
+.env
+.env.*
+!.env.example
+.phpactor.json
+.phpunit.result.cache
+auth.json
+composer.lock
+package-lock.json
+
+# IDE
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+.DS_Store
+Thumbs.db
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Build
+/public/build
+/public/hot
+/public/storage
+/public/mix-manifest.json
+
+# Storage
+/storage/*.key
+/storage/app/*
+!/storage/app/.gitkeep
+!/storage/app/public
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/testing/*
+!/storage/framework/testing/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/pail
+
+# Laravel cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/.phpunit.cache
+
+# Vendor
+/vendor
+
+# Homestead
+Homestead.json
+Homestead.yaml
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
