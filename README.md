@@ -183,12 +183,6 @@ The app features an automatic notification system:
 - Role-based middleware for access control
 - Server-side validation on all inputs
 
-## 🧪 Running Tests
-
-```bash
-php artisan test
-```
-
 ## 📝 License
 
 This project is open-source and available under the [MIT License](LICENSE).
