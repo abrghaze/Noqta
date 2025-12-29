@@ -9,6 +9,11 @@ auth.json
 composer.lock
 package-lock.json
 
+# Database
+*.sqlite
+*.sqlite-journal
+/database/*.sqlite
+
 # IDE
 /.fleet
 /.idea

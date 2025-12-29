@@ -1,6 +1,6 @@
 # 🎓 Noqta - School Management System
 
-A complete school management system built with Laravel 11, PostgreSQL, Tailwind CSS, and Alpine.js.
+A complete school management system built with Laravel 12, Tailwind CSS, and Alpine.js.
 
 ## 🚀 Features
 
@@ -15,33 +15,64 @@ A complete school management system built with Laravel 11, PostgreSQL, Tailwind 
 
 - PHP >= 8.2
 - Composer
-- PostgreSQL >= 13
-- Node.js & NPM
+- Node.js >= 18 & NPM
+- PostgreSQL >= 13 (recommended) OR SQLite
 
 ## ⚙️ Installation
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/noqta-gestion-scolaire.git
-cd noqta-gestion-scolaire
+git clone https://github.com/abrghaze/Noqta.git
+cd Noqta
 ```
 
-### 2. Install dependencies
+### 2. Install PHP dependencies
 
 ```bash
 composer install
+```
+
+### 3. Install Node.js dependencies
+
+```bash
 npm install
 ```
 
-### 3. Configure environment
+### 4. Configure environment
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and configure your PostgreSQL database:
+### 5. Generate application key
 
+```bash
+php artisan key:generate
+```
+
+### 6. Configure Database
+
+#### Option A: SQLite (Easiest - Recommended for testing)
+
+Edit `.env` and set:
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
+
+Then create the database file:
+```bash
+# Linux/Mac
+touch database/database.sqlite
+
+# Windows (PowerShell)
+New-Item -ItemType File -Path "database/database.sqlite" -Force
+```
+
+#### Option B: PostgreSQL (Recommended for production)
+
+Edit `.env` and configure:
 ```env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
@@ -51,8 +82,7 @@ DB_USERNAME=postgres
 DB_PASSWORD=your_password
 ```
 
-### 4. Create database
-
+Create the database:
 ```bash
 # Connect to PostgreSQL
 psql -U postgres
@@ -64,13 +94,7 @@ CREATE DATABASE gestion_notes_absence;
 \q
 ```
 
-### 5. Generate application key
-
-```bash
-php artisan key:generate
-```
-
-### 6. Run migrations and seeders
+### 7. Run migrations and seed database
 
 ```bash
 php artisan migrate --seed
@@ -78,25 +102,25 @@ php artisan migrate --seed
 
 This will create all tables and populate them with test data.
 
-### 7. Create storage link
+### 8. Create storage link
 
 ```bash
 php artisan storage:link
 ```
 
-### 8. Build assets
+### 9. Build frontend assets
 
 ```bash
 npm run build
 ```
 
-### 9. Start the server
+### 10. Start the server
 
 ```bash
 php artisan serve
 ```
 
-Visit: `http://localhost:8000`
+Visit: **http://localhost:8000**
 
 ## 👤 Test Accounts
 
@@ -104,56 +128,66 @@ After running seeders, you can log in with:
 
 | Role | Email | Password |
 |------|-------|----------|
-| Director | directeur@school.com | password |
-| Teacher | jean.dupont@school.com | password |
-| Teacher | marie.martin@school.com | password |
-| Student | etudiant1@school.com | password |
-| Parent | parent1@school.com | password |
+| **Director** | directeur@school.com | password |
+| **Teacher** | jean.dupont@school.com | password |
+| **Teacher** | marie.martin@school.com | password |
+| **Student** | etudiant1@school.com | password |
+| **Parent** | parent1@school.com | password |
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Laravel 11, PHP 8.2+
-- **Database**: PostgreSQL
+- **Backend**: Laravel 12, PHP 8.2+
+- **Database**: PostgreSQL / SQLite
 - **Frontend**: Blade Templates, Tailwind CSS, Alpine.js
-- **Charts**: Chart.js
-- **Icons**: Font Awesome
+- **Build Tool**: Vite
+- **Icons**: Heroicons
 
-## 📱 Main Features
+## 📱 Features by Role
 
-### For Directors
+### 👔 Director
 - View global statistics and charts
 - Manage all users, classes, and subjects
-- Access to all data
+- View all grades and attendance records
+- Generate reports
 
-### For Teachers
+### 👨‍🏫 Teacher
 - Add and edit grades for their subjects
 - Mark attendance for their classes
-- View their class statistics
+- View their students' statistics
+- Manage their class data
 
-### For Students
+### 🎓 Student
 - View their grades and attendance
 - Receive real-time notifications
 - Track their academic performance
+- View their class schedule
 
-### For Parents
+### 👨‍👩‍👧 Parent
 - Monitor their child's grades
 - View attendance records
-- Receive notifications about important events
+- Receive notifications about grades and absences
+- Contact teachers
 
 ## 🔔 Notification System
 
 The app features an automatic notification system:
-- Students and parents are notified when grades are added/modified
-- Notifications for absences and tardiness
-- Real-time badge showing unread notifications
-- Notification center with full history
+- ✅ Students and parents are notified when grades are added/modified
+- ✅ Notifications for absences and tardiness
+- ✅ Real-time badge showing unread notifications
+- ✅ Notification center with full history
 
 ## 🔐 Security
 
-- Secure authentication with hashed passwords
+- Secure authentication with hashed passwords (bcrypt)
 - CSRF protection on all forms
 - Role-based middleware for access control
-- Server-side validation
+- Server-side validation on all inputs
+
+## 🧪 Running Tests
+
+```bash
+php artisan test
+```
 
 ## 📝 License
 
@@ -162,6 +196,12 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📞 Support
 
