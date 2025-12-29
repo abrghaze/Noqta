@@ -16,7 +16,7 @@ A complete school management system built with Laravel 12, Tailwind CSS, and Alp
 - PHP >= 8.2
 - Composer
 - Node.js >= 18 & NPM
-- PostgreSQL >= 13 (recommended) OR SQLite
+- PostgreSQL >= 13
 
 ## ⚙️ Installation
 
@@ -51,28 +51,10 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-### 6. Configure Database
+### 6. Configure PostgreSQL Database
 
-#### Option A: SQLite (Easiest - Recommended for testing)
+Edit `.env` and configure your database credentials:
 
-Edit `.env` and set:
-```env
-DB_CONNECTION=sqlite
-DB_DATABASE=database/database.sqlite
-```
-
-Then create the database file:
-```bash
-# Linux/Mac
-touch database/database.sqlite
-
-# Windows (PowerShell)
-New-Item -ItemType File -Path "database/database.sqlite" -Force
-```
-
-#### Option B: PostgreSQL (Recommended for production)
-
-Edit `.env` and configure:
 ```env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
@@ -82,16 +64,10 @@ DB_USERNAME=postgres
 DB_PASSWORD=your_password
 ```
 
-Create the database:
-```bash
-# Connect to PostgreSQL
-psql -U postgres
+Create the database in PostgreSQL (using psql or pgAdmin):
 
-# Create database
+```sql
 CREATE DATABASE gestion_notes_absence;
-
-# Exit
-\q
 ```
 
 ### 7. Run migrations and seed database
@@ -137,7 +113,7 @@ After running seeders, you can log in with:
 ## 🛠️ Tech Stack
 
 - **Backend**: Laravel 12, PHP 8.2+
-- **Database**: PostgreSQL / SQLite
+- **Database**: PostgreSQL
 - **Frontend**: Blade Templates, Tailwind CSS, Alpine.js
 - **Build Tool**: Vite
 - **Icons**: Heroicons
@@ -190,12 +166,6 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📞 Support
 
