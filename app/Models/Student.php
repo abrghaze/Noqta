@@ -36,6 +36,12 @@ class Student extends Model
         return $this->belongsTo(ClassRoom::class, 'class_id');
     }
 
+    // Alias for class() to avoid PHP reserved word issues
+    public function classRoom()
+    {
+        return $this->belongsTo(ClassRoom::class, 'class_id');
+    }
+
     public function grades()
     {
         return $this->hasMany(Grade::class);

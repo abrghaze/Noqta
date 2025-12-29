@@ -61,7 +61,7 @@ class SubjectController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'class_id' => 'required|exists:class_rooms,id',
+            'class_id' => 'required|exists:classes,id',
             'teacher_id' => 'required|exists:users,id',
             'coefficient' => 'required|numeric|min:0.5|max:10',
             'description' => 'nullable|string|max:1000',
@@ -112,7 +112,7 @@ class SubjectController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'class_id' => 'required|exists:class_rooms,id',
+            'class_id' => 'required|exists:classes,id',
             'teacher_id' => 'required|exists:users,id',
             'coefficient' => 'required|numeric|min:0.5|max:10',
             'description' => 'nullable|string|max:1000',

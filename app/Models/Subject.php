@@ -25,6 +25,12 @@ class Subject extends Model
         return $this->belongsTo(ClassRoom::class, 'class_id');
     }
 
+    // Alias for class() to avoid PHP reserved word issues
+    public function classRoom()
+    {
+        return $this->belongsTo(ClassRoom::class, 'class_id');
+    }
+
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');

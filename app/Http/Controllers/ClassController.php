@@ -103,10 +103,11 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:class_rooms,name',
+            'name' => 'required|string|max:255|unique:classes,name',
             'teacher_id' => 'nullable|exists:users,id',
             'capacity' => 'nullable|integer|min:1',
             'room_number' => 'nullable|string|max:50',
+            'description' => 'nullable|string|max:500',
         ]);
 
         ClassRoom::create($validated);
@@ -148,10 +149,11 @@ class ClassController extends Controller
     public function update(Request $request, ClassRoom $class)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:class_rooms,name,' . $class->id,
+            'name' => 'required|string|max:255|unique:classes,name,' . $class->id,
             'teacher_id' => 'nullable|exists:users,id',
             'capacity' => 'nullable|integer|min:1',
             'room_number' => 'nullable|string|max:50',
+            'description' => 'nullable|string|max:500',
         ]);
 
         $class->update($validated);

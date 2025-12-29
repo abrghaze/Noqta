@@ -105,7 +105,8 @@ After running seeders, you can log in with:
 | Role | Email | Password |
 |------|-------|----------|
 | Director | directeur@school.com | password |
-| Teacher | enseignant1@school.com | password |
+| Teacher | jean.dupont@school.com | password |
+| Teacher | marie.martin@school.com | password |
 | Student | etudiant1@school.com | password |
 | Parent | parent1@school.com | password |
 

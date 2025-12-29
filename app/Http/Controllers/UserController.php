@@ -62,10 +62,10 @@ class UserController extends Controller
             'phone' => 'nullable|string|max:20',
             // Student-specific
             'matricule' => 'required_if:role,etudiant|nullable|string|unique:students,matricule',
-            'class_id' => 'required_if:role,etudiant|nullable|exists:class_rooms,id',
+            'class_id' => 'required_if:role,etudiant|nullable|exists:classes,id',
             'date_of_birth' => 'nullable|date',
             'address' => 'nullable|string',
-            'parent_id' => 'nullable|exists:parent_profiles,id',
+            'parent_id' => 'nullable|exists:parents,id',
             // Parent-specific
             'relationship' => 'nullable|string|max:50',
         ]);
@@ -134,10 +134,10 @@ class UserController extends Controller
             'phone' => 'nullable|string|max:20',
             // Student-specific
             'matricule' => 'required_if:role,etudiant|nullable|string|unique:students,matricule,' . ($user->student->id ?? 'NULL'),
-            'class_id' => 'required_if:role,etudiant|nullable|exists:class_rooms,id',
+            'class_id' => 'required_if:role,etudiant|nullable|exists:classes,id',
             'date_of_birth' => 'nullable|date',
             'address' => 'nullable|string',
-            'parent_id' => 'nullable|exists:parent_profiles,id',
+            'parent_id' => 'nullable|exists:parents,id',
             // Parent-specific
             'relationship' => 'nullable|string|max:50',
         ]);
